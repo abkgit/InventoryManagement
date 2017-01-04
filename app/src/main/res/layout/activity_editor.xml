@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Layout for the editor -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_margin"
+    tools:context=".ProductEditorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <!-- Overview category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Label -->
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Product Details" />
+
+            <!-- Input fields -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:paddingLeft="4dp">
+                <!-- Name field -->
+                <EditText
+                    android:id="@+id/edit_product_name"
+                    style="@style/EditorFieldStyle"
+                    android:layout_width="match_parent"
+                    android:hint="Name"
+                    android:inputType="textCapWords" />
+
+                <!-- Price field -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="4dp">
+
+                    <EditText
+                        android:id="@+id/edit_product_price"
+                        style="@style/EditorFieldStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:hint="Price"
+                        android:inputType="number" />
+
+                    <!-- Currency for price ($) -->
+                    <TextView
+                        style="@style/EditorCurrencyStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="$" />
+                </LinearLayout>
+
+                <!-- Quantity Available field -->
+                <EditText
+                    android:id="@+id/edit_product_quantity_available"
+                    style="@style/EditorFieldStyle"
+                    android:layout_width="match_parent"
+                    android:hint="Quantity"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Image and Update Quantity category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <!-- Label -->
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Sales &amp; Shipment" />
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:paddingStart="4dp">
+                <!-- Track Product Sale -->
+                <EditText
+                    android:id="@+id/edit_track_sale"
+                    style="@style/EditorFieldStyle"
+                    android:layout_width="match_parent"
+                    android:hint="Quantity Sold"
+                    android:inputType="numberDecimal" />
+
+
+                <!-- Track Product Shipment Received -->
+                <EditText
+                    android:id="@+id/edit_track_shipment"
+                    style="@style/EditorFieldStyle"
+                    android:layout_width="match_parent"
+                    android:hint="Quantity Received"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Label -->
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Supplier" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edit_product_supplier"
+                    style="@style/EditorFieldStyle"
+                    android:layout_width="match_parent"
+                    android:hint="Supplier's Name"
+                    android:inputType="text"
+                    android:paddingLeft="8dp" />
+
+                <Button
+                    android:id="@+id/edit_button_order_shipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="Order Shipment" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Product Photo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <!-- Label -->
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Product Photo" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:id="@+id/edit_product_photo"
+                    android:layout_width="108dp"
+                    android:layout_height="108dp"
+                    android:layout_gravity="start"
+                    android:paddingStart="4dp" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
+

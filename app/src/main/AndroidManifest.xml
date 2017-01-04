@@ -8,13 +8,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InventoryActivity">
+        <activity
+            android:name=".InventoryActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ProductEditorActivity"
+            android:parentActivityName=".InventoryActivity"
+            android:theme="@style/EditorTheme">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".InventoryActivity" />
+        </activity>
+
+        <provider
+            android:name=".data.ProductProvider"
+            android:authorities="com.example.android.inventorymanagement"
+            android:exported="false" />
     </application>
 
 </manifest>
