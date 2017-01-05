@@ -129,7 +129,7 @@
                     android:id="@+id/edit_product_supplier"
                     style="@style/EditorFieldStyle"
                     android:layout_width="match_parent"
-                    android:hint="Supplier's Name"
+                    android:hint="Supplier's Email"
                     android:inputType="text"
                     android:paddingLeft="8dp" />
 
