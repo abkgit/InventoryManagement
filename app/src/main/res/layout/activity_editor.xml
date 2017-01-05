@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- Overview category -->
         <LinearLayout
@@ -20,7 +20,7 @@
             <!-- Label -->
             <TextView
                 style="@style/CategoryStyle"
-                android:text="Product Details" />
+                android:text="@string/product_details" />
 
             <!-- Input fields -->
             <LinearLayout
@@ -34,7 +34,7 @@
                     android:id="@+id/edit_product_name"
                     style="@style/EditorFieldStyle"
                     android:layout_width="match_parent"
-                    android:hint="Name"
+                    android:hint="@string/name"
                     android:inputType="textCapWords" />
 
                 <!-- Price field -->
@@ -49,15 +49,15 @@
                         style="@style/EditorFieldStyle"
                         android:layout_width="0dp"
                         android:layout_weight="3"
-                        android:hint="Price"
-                        android:inputType="number" />
+                        android:hint="@string/price"
+                        android:inputType="numberDecimal" />
 
                     <!-- Currency for price ($) -->
                     <TextView
                         style="@style/EditorCurrencyStyle"
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:text="$" />
+                        android:text="@string/dollar" />
                 </LinearLayout>
 
                 <!-- Quantity Available field -->
@@ -65,8 +65,8 @@
                     android:id="@+id/edit_product_quantity_available"
                     style="@style/EditorFieldStyle"
                     android:layout_width="match_parent"
-                    android:hint="Quantity"
-                    android:inputType="numberDecimal" />
+                    android:hint="@string/quantiity"
+                    android:inputType="number" />
             </LinearLayout>
         </LinearLayout>
 
@@ -75,13 +75,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-
             <!-- Label -->
             <TextView
                 style="@style/CategoryStyle"
-                android:text="Sales &amp; Shipment" />
-
+                android:text="@string/sales_and_shipment" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -94,20 +91,17 @@
                     android:id="@+id/edit_track_sale"
                     style="@style/EditorFieldStyle"
                     android:layout_width="match_parent"
-                    android:hint="Quantity Sold"
-                    android:inputType="numberDecimal" />
-
+                    android:hint="@string/quantity_sold"
+                    android:inputType="number" />
 
                 <!-- Track Product Shipment Received -->
                 <EditText
                     android:id="@+id/edit_track_shipment"
                     style="@style/EditorFieldStyle"
                     android:layout_width="match_parent"
-                    android:hint="Quantity Received"
-                    android:inputType="numberDecimal" />
+                    android:hint="@string/quantity_received"
+                    android:inputType="number" />
             </LinearLayout>
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -117,7 +111,7 @@
             <!-- Label -->
             <TextView
                 style="@style/CategoryStyle"
-                android:text="Supplier" />
+                android:text="@string/supplier" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -129,7 +123,7 @@
                     android:id="@+id/edit_product_supplier"
                     style="@style/EditorFieldStyle"
                     android:layout_width="match_parent"
-                    android:hint="Supplier's Email"
+                    android:hint="@string/supplier_email"
                     android:inputType="text"
                     android:paddingLeft="8dp" />
 
@@ -138,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:text="Order More" />
+                    android:text="@string/order_more" />
             </LinearLayout>
         </LinearLayout>
 
@@ -150,20 +144,30 @@
             <!-- Label -->
             <TextView
                 style="@style/CategoryStyle"
-                android:text="Product Photo" />
+                android:text="@string/photo" />
 
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/edit_button_edit_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="@string/edit_photo" />
 
                 <ImageView
                     android:id="@+id/edit_product_photo"
-                    android:layout_width="108dp"
-                    android:layout_height="108dp"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
                     android:layout_gravity="start"
+                    android:paddingBottom="8dp"
                     android:paddingStart="4dp" />
-            </FrameLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
