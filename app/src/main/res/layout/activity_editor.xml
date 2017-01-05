@@ -12,6 +12,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/compulsory" />
+
         <!-- Overview category -->
         <LinearLayout
             android:layout_width="match_parent"

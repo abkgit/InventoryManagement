@@ -5,6 +5,8 @@
 
     <string name="product_editor_activity_title_edit_product">Edit Product</string>
 
+    <string name="compulsory">* Product Name &amp; Supplier Email Mandatory *</string>
+
     <!-- Toast message in editor when new product has been successfully inserted [CHAR LIMIT=NONE] -->
     <string name="editor_insert_product_successful">Product saved</string>
 

@@ -28,9 +28,8 @@ import android.widget.Toast;
 import com.example.android.inventorymanagement.data.ProductContract.ProductEntry;
 
 /**
- *  Following reference link used to learn how to handle photos.
+ * Following reference link used to learn how to handle photos.
  * https://github.com/crlsndrsjmnz/MyFileProviderExample/blob/master/app/src/main/java/co/carlosandresjimenez/android/myfileproviderexample/MainActivity.java
- *
  */
 
 /**
@@ -161,7 +160,7 @@ public class ProductEditorActivity extends AppCompatActivity implements
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-                intent.putExtra(Intent.EXTRA_EMAIL, mSupplierEditText.getText());
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{ mSupplierEditText.getText().toString() });
                 intent.putExtra(Intent.EXTRA_SUBJECT, mNameEditText.getText() + " Order");
                 intent.putExtra(Intent.EXTRA_TEXT, "Order Quantity:  ");
                 if (intent.resolveActivity(getPackageManager()) != null) {
@@ -217,7 +216,9 @@ public class ProductEditorActivity extends AppCompatActivity implements
             Log.i(LOG_TAG, "Uri: " + mPhotoUri.toString());
 
             mPhotoPath = mPhotoUri.toString();
-            mProductPhotoImageView.setImageURI(Uri.parse(mPhotoPath));
+            if (mPhotoUri != null) {
+                mProductPhotoImageView.setImageURI(mPhotoUri);
+            }
         }
     }
 
@@ -237,12 +238,10 @@ public class ProductEditorActivity extends AppCompatActivity implements
         // Check if this is supposed to be a new product
         // and check if all the fields in the editor are blank
         if (mCurrentProductUri == null &&
-                TextUtils.isEmpty(nameString) && TextUtils.isEmpty(priceString) &&
-                TextUtils.isEmpty(quantityString) && TextUtils.isEmpty(quantitySaleString) &&
-                TextUtils.isEmpty(quantityShipmentString) && TextUtils.isEmpty(supplierString)
-                && TextUtils.isEmpty(mPhotoPath)) {
-            // Since no fields were modified, we can return early without creating a new product.
+                TextUtils.isEmpty(nameString) || TextUtils.isEmpty(supplierString)) {
+            // Since required fields not entered, we can return early without creating a new product.
             // No need to create ContentValues and no need to do any ContentProvider operations.
+            Log.i(LOG_TAG, "Product name and supplier email compulsory");
             return;
         }
 
@@ -252,8 +251,8 @@ public class ProductEditorActivity extends AppCompatActivity implements
 
         values.put(ProductEntry.COLUMN_PRODUCT_NAME, nameString);
 
-        // If the product price is not provided by the user, don't try to parse the string into an
-        // integer value. Use 0.00 by default.
+        // If the product price is not provided by the user, don't try to parse the string into a
+        // double value. Use 0.00 by default.
         double price = 0.00;
         if (!TextUtils.isEmpty(priceString)) {
             price = Double.parseDouble(priceString);
@@ -472,18 +471,18 @@ public class ProductEditorActivity extends AppCompatActivity implements
             String photo = cursor.getString(photoColumnIndex);
 
             // Create URI from photo value
-            mPhotoUri = Uri.parse(photo);
+            if (photo != null) {
+                mPhotoUri = Uri.parse(photo);
+            }
 
             // Update the views on the screen with the values from the database
             mNameEditText.setText(name);
             mPriceEditText.setText(Double.toString(price));
             mQuantityEditText.setText(Integer.toString(quantity));
             mSupplierEditText.setText(supplier);
-            mProductPhotoImageView.setImageURI(mPhotoUri);
-
-            //Set Sale and Shipment EditTexts to 0 by default
-            mQuantitySaleEditText.setText(Integer.toString(0));
-            mQuantityShipmentEditText.setText(Integer.toString(0));
+            if (mPhotoUri != null) {
+                mProductPhotoImageView.setImageURI(mPhotoUri);
+            }
         }
     }
 
