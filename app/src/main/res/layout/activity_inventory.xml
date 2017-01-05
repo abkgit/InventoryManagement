@@ -38,7 +38,7 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif"
             android:paddingTop="8dp"
-            android:text="Add some products"
+            android:text="Please add some products"
             android:textAppearance="?android:textAppearanceSmall"
             android:textColor="#A2AAB0"/>
     </RelativeLayout>
